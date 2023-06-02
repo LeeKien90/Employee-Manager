@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Employee manager | sửa chức vụ</title>
+</head>
+<body>
+<div class="content-page" layout:fragment="content">
+    <div class="container-fluid add-form-list">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title"> + Edit Position</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form data-toggle="validator" th:action="@{/position/update}" method="post" role="form"
+                              th:object="${position}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="1name">Name *</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name"
+                                               data-errors="Please Enter Name." required id="1name" th:value="*{name}">
+                                        <div class="help-block with-errors"></div>
+                                        <input type="hidden" th:field="*{id}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="1description">Description *</label>
+                                        <input type="text" name="description" class="form-control"
+                                               placeholder="Enter Description"
+                                               data-errors="Please Enter Code." required id="1description"
+                                               th:value="*{description}">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Status *</label>
+                                        <select id="name" name="sex" th:field="*{status}"
+                                                class="select picker form-control" data-style="py-0">
+                                            <option value="1">Active</option>
+                                            <option value="0">Block</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Edit ...</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
